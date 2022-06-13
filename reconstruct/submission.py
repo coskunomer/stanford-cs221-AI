@@ -77,7 +77,7 @@ def insertVowels(queryWords, bigramCost, possibleFills):
     # BEGIN_YOUR_CODE (our solution is 3 lines of code, but don't worry if you deviate from this)
     if len(queryWords) == 0: return ""
     queryWords = [wordsegUtil.SENTENCE_BEGIN] + queryWords
-    ucs = util.UniformCostSearch(verbose=1)
+    ucs = util.UniformCostSearch(verbose=0)
     ucs.solve(VowelInsertionProblem(queryWords, bigramCost, possibleFills))
     return " ".join(ucs.actions)
     # END_YOUR_CODE
@@ -120,7 +120,7 @@ def segmentAndInsert(query, bigramCost, possibleFills):
 
     # BEGIN_YOUR_CODE (our solution is 4 lines of code, but don't worry if you deviate from this)
     queryWords = [wordsegUtil.SENTENCE_BEGIN] + list(query)
-    ucs = util.UniformCostSearch(verbose=1)
+    ucs = util.UniformCostSearch(verbose=0)
     ucs.solve(JointSegmentationInsertionProblem(queryWords, bigramCost, possibleFills))
     return " ".join(ucs.actions)
     # END_YOUR_CODE
